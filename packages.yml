@@ -2,6 +2,11 @@
 
 tasks:
 
+  - name: Auto Sudo
+    copy:
+      content: "{{ username }} ALL=NOPASSWD:ALL"
+      dest: "/etc/sudoers.d/{{ username }}"
+
   - name: The docker repo key
     apt_key:
       url: https://download.docker.com/linux/debian/gpg
