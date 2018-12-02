@@ -31,6 +31,8 @@ tasks:
       - curl
       - dnsutils
       - docker-ce
+      - git
+      - git-core
       - docker-compose
       - kubectl
       - net-tools
