@@ -1,9 +1,9 @@
 ---
 
 - hosts: localhost
-- become: True
-- connection: local
-- tasks:
+  become: True
+  connection: local
+  tasks:
 
   - name: Auto Sudo
     copy:
@@ -30,22 +30,21 @@
 
   - name: Install Packages
     apt:
-      name: "{{ item }}"
       state: latest
       update_cache: yes
-    with_items:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - dnsutils
-      - docker-ce
-      - git
-      - git-core
-      - docker-compose
-      - kubectl
-      - net-tools
-      - software-properties-common
-      - tree
-      - virtualbox
-      - vagrant
-      - vim
+      name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - dnsutils
+        - docker-ce
+        - git
+        - git-core
+        - docker-compose
+        - kubectl
+        - net-tools
+        - software-properties-common
+        - tree
+        - virtualbox
+        - vagrant
+        - vim
