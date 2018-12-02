@@ -1,6 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ ! -z "$(cat /etc/os-release | grep ID_LIKE | grep debian)" ] ;
+set +e
+set +x
+set +u
+
+if [ ! -z "$(cat /etc/os-release | grep mint)" ] ;
 then
     echo "found Debian"
     apt update
@@ -8,8 +12,4 @@ then
     pip install ansible
     git clone https://github.com/backenddeveloper/configuration
     ansible-playbook configuration/packages.yml
-fi
-if [ ! -z "$(cat /etc/os-release | grep ID_LIKE | grep centos)" ] ;
-then
-    echo "found CentOS"
 fi
