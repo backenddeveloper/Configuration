@@ -1,0 +1,41 @@
+---
+
+tasks:
+
+  - name: The docker repo key
+    apt_key:
+      url: https://download.docker.com/linux/debian/gpg
+  
+  - name: The docker repo list
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/debian stretch edge"
+      filename: "docker.list"
+
+  - name: The kube repo key
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  
+  - name: The kube repo list
+    apt_repository:
+      repo: "deb [arch=amd64] http://apt.kubernetes.io/ kubernetes-xenial main"
+      filename: "kube.list"
+
+  - name: Install Packages
+    apt:
+      name: "{{ item }}"
+      state: latest
+      update_cache: yes
+    with-items:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - dnsutils
+      - docker-ce
+      - docker-compose
+      - kubectl
+      - net-tools
+      - software-properties-common
+      - tree
+      - virtualbox
+      - vagrant
+      - vim
