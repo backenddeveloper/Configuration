@@ -1,6 +1,9 @@
 ---
 
-tasks:
+- hosts: localhost
+- become: True
+- connection: local
+- tasks:
 
   - name: Auto Sudo
     copy:
@@ -30,7 +33,7 @@ tasks:
       name: "{{ item }}"
       state: latest
       update_cache: yes
-    with-items:
+    with_items:
       - apt-transport-https
       - ca-certificates
       - curl
