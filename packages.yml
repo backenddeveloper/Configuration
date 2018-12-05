@@ -35,6 +35,7 @@
       name:
         - apt-transport-https
         - ca-certificates
+        - chromium-browser
         - curl
         - dnsutils
         - docker-ce
@@ -43,8 +44,12 @@
         - docker-compose
         - kubectl
         - net-tools
+        - pass
+        - pwgen
+        - rng-tools
         - software-properties-common
         - tree
         - virtualbox
         - vagrant
         - vim
+        - whois
